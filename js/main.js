@@ -167,33 +167,33 @@ document.addEventListener("DOMContentLoaded", () => {
   
   videoScroll();
 
-  // //либа скрола
-  // const scroller = new LocomotiveScroll({
-  //   el: document.querySelector('[data-scroll-container]'),
-  //   smooth: true,
-  //   smartphone: {smooth: false},
-  //   tablet: {smooth: true},
+  //либа скрола
+  const scroller = new LocomotiveScroll({
+    el: document.querySelector('[data-scroll-container]'),
+    smooth: true,
+    smartphone: {smooth: false},
+    tablet: {smooth: true},
     
-  // });
+  });
 
     
-  //   scroller.on('scroll', () => {
-  //     var windowHeight = window.innerHeight,
-  //     videoEl = document.querySelectorAll('.video-block__item');
-  //         for (var i = 0; i < videoEl.length; i++) {
+    scroller.on('scroll', () => {
+      var windowHeight = window.innerHeight,
+      videoEl = document.querySelectorAll('.video-block__item');
+          for (var i = 0; i < videoEl.length; i++) {
       
-  //           var thisVideoEl = videoEl[i],
-  //               videoHeight = thisVideoEl.clientHeight,
-  //               videoClientRect = thisVideoEl.getBoundingClientRect().top;
+            var thisVideoEl = videoEl[i],
+                videoHeight = thisVideoEl.clientHeight,
+                videoClientRect = thisVideoEl.getBoundingClientRect().top;
       
-  //           if ( videoClientRect <= ( (windowHeight) - (videoHeight*.5) ) && videoClientRect >= ( 0 - ( videoHeight*.5 ) ) ) {
-  //             thisVideoEl.play();
-  //           } else {
-  //             thisVideoEl.pause();
-  //           }
-  //         }
+            if ( videoClientRect <= ( (windowHeight) - (videoHeight*.5) ) && videoClientRect >= ( 0 - ( videoHeight*.5 ) ) ) {
+              thisVideoEl.play();
+            } else {
+              thisVideoEl.pause();
+            }
+          }
         
-  //   });
+    });
 
 
   //слайдер в секции metaverse только для десктопа
@@ -211,17 +211,17 @@ document.addEventListener("DOMContentLoaded", () => {
           centeredSlides: true,
           mousewheel: true,
           loop: false,
-          // on: {
-          //   slideChangeTransitionEnd: function () {
-          //     console.log('changed')
-          //     console.log(mySwiper.isEnd)
-          //     if (mySwiper.isEnd) {
-          //       setTimeout(function () {
+          on: {
+            slideChangeTransitionEnd: function () {
+              console.log('changed')
+              console.log(mySwiper.isEnd)
+              if (mySwiper.isEnd) {
+                setTimeout(function () {
                   
-          //       }, 1000)
-          //     }
-          //   }
-          // }
+                }, 1000)
+              }
+            }
+          }
         });
         swiperVert.dataset.mobile = 'true';
        
@@ -246,31 +246,21 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
-  // //тот вариант скрола при наведении
-  // scrollStop.onmouseover = scrollStop.onmouseout = handler;
+  //тот вариант скрола при наведении
+  scrollStop.onmouseover = scrollStop.onmouseout = handler;
 
-  // function handler(event) {
+  function handler(event) {
   
-  //   if (event.type == 'mouseover') {
-  //     scroller.stop();
-  //   }
-  //   if (event.type == 'mouseout') {
-  //     scroller.start();
-  //   }
-  // }
+    if (event.type == 'mouseover') {
+      scroller.stop();
+    }
+    if (event.type == 'mouseout') {
+      scroller.start();
+    }
+  }
 
   
-  const section = document.querySelector(".metaverse").clientHeight;
-  // console.log(section);
-  console.log(window.scrollBy);
 
-  window.addEventListener("scroll", () => {
-
-    // if (window.pageYOffset > 500) {
-    //   console.log("gb");
-    // }
-
-  })
 
 
 
